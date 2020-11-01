@@ -1,17 +1,9 @@
 .App {
   text-align: center;
+  visibility: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -24,15 +16,75 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.circle{
+  width: 75px;
+  height:75px;
+  border-radius: 100%;
+  background-color:#ffe600;
+  margin:50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle.red{
+  background-color:#fd5151;
+}
+.circle.blue{
+  background-color:#51a0fd;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.eye {
+  content: '';
+  position: absolute;
+  background: var(--face-color, var(--face-color-default));
+  -webkit-transition: background .2s, box-shadow .2s;
+  transition: background .2s, box-shadow .2s;
+}
+.star {
+  width: 40px;
+  height: 40px;
+  left: 5rem;
+  top: 5rem;
+  -webkit-transform: translateY(0) rotate(0deg) scale(1);
+          transform: translateY(0) rotate(0deg) scale(1);
+  border-radius: 0;
+}
+.star::before, .eye {
+  content:'';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  left: 26px;
+  top: 5px;
+  background:#000;
+  position: absolute;
+} 
+.smile {
+    position: absolute;
+    background: #000;
+  width: 25px;
+  height: 8px;
+  border-radius:8px 8px 0 0;
+  left: 7px;
+  top: 30px;
+  -webkit-transition: border-radius .2s;
+  transition: border-radius .2s;
+}
+.eye {
+  left: 0;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+.star .eye:before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 5px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #1A1A20;
+  opacity: 0;
+  -webkit-transform: translateY(-6px) scaleY(1);
+          transform: translateY(-6px) scaleY(1);
 }
